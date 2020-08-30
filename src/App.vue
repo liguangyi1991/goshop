@@ -1,14 +1,23 @@
 <template>
   <div id="app">
     <router-view />
-    <footer-guide v-if="$router.meta.showFooter === true" />
+    <!-- <div>{{this.$route.meta.showFooter}}</div> -->
+    <footer-guide v-show="$route.meta.showFooter" />
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
 export default {
   components: {
     FooterGuide,
+  },
+  mounted() {
+    console.log('开始请求数据')
+    this.getAddress()
+  },
+  methods: {
+    ...mapActions(['getAddress']),
   },
 }
 </script>
