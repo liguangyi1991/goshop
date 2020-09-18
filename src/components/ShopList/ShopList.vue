@@ -51,7 +51,7 @@ import { mapState } from 'vuex'
 import Star from '../Star/Star.vue'
 export default {
   components: {
-    // Star,
+    Star,
   },
   computed: {
     ...mapState(['shops']),
